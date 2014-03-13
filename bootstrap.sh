@@ -4,9 +4,8 @@
 # mostly to be used on a dev machine run via vagrant
 # currently ubuntu flavored only
 
-#apt-get update
-#apt-get -y --quiet install git curl
-apt-get -y --quiet install curl
+apt-get update
+apt-get -y --quiet install git curl
 git clone https://github.com/cloudsidekick/petclinic-chef.git /var/chef
 mkdir -p /var/chef/tmp
 chmod 755 -R /var/chef
