@@ -10,8 +10,9 @@ git clone https://github.com/cloudsidekick/petclinic-chef.git /var/chef
 mkdir -p /var/chef/tmp
 chmod 755 -R /var/chef
 curl https://www.opscode.com/chef/install.sh | /bin/bash
+WAR="http://artifactory.cloudsidekick.com:8081/artifactory/ext-release-local/org/springframework/samples/spring-petclinic/20/spring-petclinic-20.war"
 
-echo '{"run_list": [ "recipe[petclinic::default]" ]}' > /tmp/solo.json
+echo "{\"petclinic\": {\"war\": {\"url\": \"${WAR}\"}}, \"run_list\": [ \"recipe[petclinic::default]\" ]}" > /tmp/solo.json
 
 chef-solo -j /tmp/solo.json -c /var/chef/solo.rb
 
