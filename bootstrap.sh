@@ -11,4 +11,7 @@ mkdir -p /var/chef/tmp
 chmod 755 -R /var/chef
 curl https://www.opscode.com/chef/install.sh | /bin/bash
 chef-solo -j /var/chef/solo.json -c /var/chef/solo.rb
+
+# for some reason, the install doesn't complete until it is run again
+# the second time around there should be no error
 chef-solo -j /var/chef/solo.json -c /var/chef/solo.rb
