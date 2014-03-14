@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# PMD - see the README comment below ...
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -116,5 +118,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   #   chef.validation_client_name = "ORGNAME-validator"
 
-  config.vm.provision :shell, :path => "bootstrap.sh", :args => ENV["CATO_BUILD_NUM"]
+  # README - apparently the only way to pass in variables 
+  # to a vagrantfile is through environment variables.
+  # well that works fine in dev testing
+  # make sure to set as the example below
+
+  # export CATO_BUILD_NUM=21
+
+  config.vm.provision :shell, :path => "vagrant_bootstrap.sh", :args => ENV["CATO_BUILD_NUM"]
 end
