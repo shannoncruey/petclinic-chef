@@ -9,7 +9,7 @@
 include_recipe "application"
 
 application 'petclinic' do
-  path         '/opt/petclinic'
+  path         '/usr/local/petclinic'
   owner        node['tomcat']['user']
   group        node['tomcat']['group']
   repository   node['petclinic']['war']['url']
